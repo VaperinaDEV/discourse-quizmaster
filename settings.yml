@@ -1,0 +1,51 @@
+quizmaster_username:
+  type: string
+  default: ""
+  description: "The used AI QuizBot username. (required)"
+show_for_groups:
+  type: list
+  list_type: group
+  default: ""
+  description: "Enter group names to show to specific groups. (required)"
+quiz_max_questions:
+  default: 50
+  type: integer
+  min: 1
+  max: 200
+button_icon:
+  type: string
+  default: circle-question
+dropdown_items:
+  type: objects
+  default: 
+    - label_template: quiz_easy_label
+      description_template: quiz_easy_description
+      icon: far-star-half
+      message_template: quizmaster_input_easy
+    - label_template: quiz_normal_label
+      description_template: quiz_normal_description
+      icon: far-star
+      message_template: quizmaster_input_normal
+    - label_template: quiz_hard_label
+      description_template: quiz_hard_description
+      icon: certificate
+      message_template: quizmaster_input_hard
+    - label_template: quiz_mixed_label
+      description_template: quiz_mixed_description
+      icon: shuffle
+      message_template: quizmaster_input_mixed
+  schema:
+    properties:          
+      label_template:
+        type: string
+      description_template:
+        type: string
+      icon:
+        type: string
+      message_template:
+        type: string
+svg_icons:
+  default: "far-star-half"
+  type: list
+  list_type: "compact"
+  description: "List of FontAwesome 6 icons used in this theme component"

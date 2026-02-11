@@ -1,0 +1,28 @@
+en:
+  theme_metadata:
+    description: ""
+    settings:
+      example_setting: A description of a setting.
+  quiz: "Quiz!"
+  
+  # Dropdown labels
+  quiz_easy_label: "Easy Quiz"
+  quiz_normal_label: "Normal Quiz"
+  quiz_hard_label: "Hard Quiz"
+  quiz_mixed_label: "Mixed Quiz"
+  
+  # Dropdown descriptions
+  quiz_easy_description: "Basic questions for beginners"
+  quiz_normal_description: "Average difficulty questions"
+  quiz_hard_description: "Advanced level challenge"
+  quiz_mixed_description: "Random difficulty questions"
+  
+  # Message templates
+  quizmaster_input_easy: "Give me an easy quiz question"
+  quizmaster_input_normal: "Give me a normal difficulty quiz question"
+  quizmaster_input_hard: "Give me a hard quiz question"
+  quizmaster_input_mixed: "Give me a mixed difficulty quiz question"
+  
+  terminate_quiz: "Thanks for the game, I'd like a summary!"
+  my_answer: "My answer to the question is:"
+  max_questions_text: "questions (or until my source runs dry). Every 10, you choose: stay or venture on."

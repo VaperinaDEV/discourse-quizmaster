@@ -1,0 +1,220 @@
+.d-header-icons .header-quiz-btn {
+  .d-icon {
+    font-size: var(--font-up-1) !important;
+    width: auto !important;
+  }
+  .d-button-label {
+    font-weight: 600;
+  }
+}
+
+.header-quiz-chooser-content {
+  max-width: 300px !important;
+  z-index: z("max");
+  .dropdown-menu__item {
+    .btn {
+      display: grid;
+      grid-template-areas:
+          "icon title"
+          "icon description";
+      grid-template-columns: auto 1fr;
+      text-align: left;
+
+      .d-button-label {
+        font-weight: 600;
+      }
+  
+      .btn__description {
+        grid-area: description;
+        width: 100%;
+        font-size: var(--font-down-1);
+        color: var(--secondary-low);
+      }
+    }
+  }
+}
+
+[data-wrap="quiz-options"] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.75em;
+  margin: 1em 0;
+
+  ul {
+    display: contents;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  > p {
+    display: contents !important;
+  }
+}
+
+[data-wrap="quiz-btn"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-low);
+  color: var(--primary);
+  padding: 0.5em 0.65em;
+  border-radius: 1em;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: 1px solid var(--primary-medium);
+  user-select: none;
+  text-decoration: none !important;
+  list-style: none;
+  a {
+    display: contents;
+    color: var(--primary);
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  html.discourse-no-touch & {
+    &:hover {
+      background: var(--primary-medium);
+      color: var(--secondary);
+      a {
+        color: var(--secondary);
+      }
+    }
+  }
+  html.discourse-touch & {
+    &:active {
+      background: var(--primary-medium);
+      color: var(--secondary);
+      a {
+        color: var(--secondary);
+      }
+    }
+  }
+}
+
+body.quiz-submitting {
+  #reply-control {
+    opacity: 0 !important;
+  }
+
+  #main-outlet-wrapper {
+    animation: submitQuizFade 4s;
+    pointer-events: none;
+  }
+}
+
+// Submit Quiz Animation
+@keyframes submitQuizFade {
+  0% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.quiz-summary-trigger {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+  
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-low);
+    color: var(--primary);
+    padding: 1em;
+    border-radius: 1em;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border: 1px solid var(--primary-medium);
+    text-decoration: none !important;
+    
+    &:hover {
+      background: var(--primary-medium);
+      color: var(--secondary);
+      .d-icon {
+        color: var(--secondary);
+      }
+    }
+
+    .d-icon {
+      color: var(--primary);
+    }
+  }
+}
+
+
+body.is-quiz-chat {
+  // Sidebar new message section
+  #main-outlet-wrapper {
+    .sidebar-wrapper {
+      .sidebar-container {
+        .sidebar-sections {
+          padding-top: 0 !important;
+        }
+      }
+    }
+  }
+  .ai-new-question-button__wrapper {
+    display: none !important;
+  }
+
+  // Customization Quizmaster posts
+  .quote-button {
+    display: none !important;
+  }
+  .topic-footer-main-buttons {
+    .btn.create {
+      display: none !important;
+    }
+  }
+  .timeline-footer-controls {
+    .create.reply-to-post {
+      display: none !important;
+    }
+  }
+
+  // Hide answer buttons all post but last one
+  .post-stream {
+    .quiz-question-counter {
+      display: none !important;
+    }
+    > div[data-post-number]:has(~ div[data-post-number]) {
+      [data-wrap="quiz-options"],
+      .quiz-summary-trigger {
+        display: none !important;
+      }
+      .quiz-question-counter {
+        display: block !important;
+      }
+    }
+    .quiz-summary-trigger.hard-limit-reached {
+      display: none !important;
+    }
+  }
+}
+
+// Quizmaster hide message
+.user-card-#{$quizmaster_username} {
+  .usercard-controls {
+    display: none !important;
+  }
+}
+
+// Quiz Counter
+.quiz-question-counter {
+  color: var(--primary-high);
+  font-size: var(--font-down-1);
+  font-style: italic;
+}
